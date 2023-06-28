@@ -1,0 +1,329 @@
+% \iffalse meta-comment
+% !TEX program  = XeLaTeX
+%<*internal>
+\iffalse
+%</internal>
+%<*readme>
+----------------------------------------------------------------
+ElegantLaTeX --- Elegant and Beautiful LaTeX templates.
+Author: Ethan Deng and Liam Huang
+E-mail: elegantlatex2e@gmail.com
+Released under the LaTeX Project Public License v1.3c or later
+See http://www.latex-project.org/lppl.txt
+----------------------------------------------------------------
+
+Some text about the package: probably the same as the abstract.
+%</readme>
+%<*internal>
+\fi
+\def\nameofplainTeX{plain}
+\ifx\fmtname\nameofplainTeX\else
+  \expandafter\begingroup
+\fi
+%</internal>
+%<*install>
+\input docstrip.tex
+\keepsilent
+\askforoverwritefalse
+\preamble
+----------------------------------------------------------------
+ElegantLaTeX --- Elegant and Beautiful LaTeX templates. 
+Author: Ethan Deng and Liam Huang
+Source: https://github.com/ElegantLaTeX
+E-mail: elegantlatex2e@gmail.com
+Released under the LaTeX Project Public License v1.3c or later
+See http://www.latex-project.org/lppl.txt
+----------------------------------------------------------------
+
+\endpreamble
+\postamble
+
+Copyright (C) 2009 by ElegantLaTeX <elegantlatex2e@gmail.com>
+
+This work may be distributed and/or modified under the
+conditions of the LaTeX Project Public License (LPPL), either
+version 1.3c of this license or (at your option) any later
+version.  The latest version of this license is in the file:
+
+http://www.latex-project.org/lppl.txt
+
+This work is "maintained" (as per LPPL maintenance status) by
+You.
+
+This work consists of the file  elegantlatex.dtx
+and the derived files elegantlatex.pdf,
+                      elegantnote.cls,
+                      elegantbook.cls and
+                      elegantpaper.cls.
+
+\endpostamble
+\usedir{tex/latex/elegantlatex}
+\generate{
+  \file{elegantnote.cls}{\from{\jobname.dtx}{note}}
+  \file{elegantbook.cls}{\from{\jobname.dtx}{book}}
+  \file{elegantpaper.cls}{\from{\jobname.dtx}{paper}}
+}
+%</install>
+%<install>\endbatchfile
+%<*internal>
+\usedir{source/latex/elegantlatex}
+\generate{
+  \file{\jobname.ins}{\from{\jobname.dtx}{install}}
+}
+\nopreamble\nopostamble
+\usedir{doc/latex/elegantlatex}
+\generate{
+  \file{README.txt}{\from{\jobname.dtx}{readme}}
+}
+\ifx\fmtname\nameofplainTeX
+  \expandafter\endbatchfile
+\else
+  \expandafter\endgroup
+\fi
+%</internal>
+
+%<note|book|paper>\NeedsTeXFormat{LaTeX2e}
+%<note>\ProvidesClass{elegantnote}[2020/08/26 v1.1 Elegant Note Template]
+%<book>\ProvidesClass{elegantbook}[2020/08/26 v1.2 Elegant Book Template]
+%<paper>\ProvidesClass{elegantpaper}[2020/08/26 v1.3 Elegant Paper Template]
+
+
+%<*driver>
+\ProvidesFile{\jobname.dtx}[2020/04/12 v3.1.1 ElegantLaTeX dtx]
+\documentclass{ltxdoc}
+\OnlyDescription
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\geometry{
+  a4paper,
+  top=25.4mm, bottom=25.4mm,
+  left=25mm, right=25mm,
+  headheight=2.5cm,
+  headsep=4mm,
+  footskip=12mm
+}
+\linespread{1.35}
+\geometry{a4paper, lmargin=2in, rmargin=1in}
+\usepackage{fontspec}
+\usepackage{graphicx}
+\usepackage{newtxtext}
+\renewcommand{\ttdefault}{cmtt}
+\usepackage[UTF8]{ctex}
+\usepackage[numbered]{hypdoc}
+\newcommand\email[1]{\href{mailto:#1}{\nolinkurl{#1}}}
+\usepackage[shortlabels,inline]{enumitem}
+\setlist{nolistsep}
+\usepackage{xcolor}
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+\begin{document}
+  \DocInput{\jobname.dtx}
+  \PrintChanges
+  \PrintIndex
+\end{document}
+%</driver>
+% \fi
+%\GetFileInfo{\jobname.dtx}
+%
+%
+% \DoNotIndex{\xmulineto, \arabic, \newenvironments, \LaTeX,
+% \textbf, \thechapter, \theexam, \rmfamily, \renewcommand, \ignorespacesafterend, \vspace, \par, \draw, \begin, \end, \\, }
+% \title{\bfseries
+%  Elegant\LaTeX{} --- Templates Guide Book \\ 
+%  ElegantLaTeX 系列模板说明文档
+% }
+%\author{
+%  Ethan Deng \thanks{E-mail: elegantlatex2e@gmail.com} \& Liam Huang 
+%}
+%\date{Released \filedate}
+%
+%\maketitle
+%
+%\changes{v1.0}{2009/10/06}{First public release}
+%
+%
+%\section{Elegant\LaTeX{} 简介 / Elegant\LaTeX{} Introduction}
+% Elegant\LaTeX{} 项目组致力于打造一系列美观、优雅、简便的模板方便用户使用。目前由
+% \href{https://github.com/ElegantLaTeX/ElegantNote}{ElegantNote}，
+% \href{https://github.com/ElegantLaTeX/ElegantBook}{ElegantBook}，
+% \href{https://github.com/ElegantLaTeX/ElegantPaper}{ElegantPaper} 组成，
+% 分别用于排版笔记，书籍和工作论文。强烈推荐使用最新正式版本！本文将介绍本模板的一些设置内容以及基本使用方法。
+% 如果您有其他问题，建议或者意见，欢迎在 GitHub 上给我们提交 
+% \href{https://github.com/ElegantLaTeX/ElegantBook/issues}{issues} 或者邮件联系我们。
+%
+%
+% Elegant\LaTeX{} Program developers are intended to provide you beautiful, 
+% elegant, user-friendly templates. Currently, the Elegant\LaTeX{} is composed of 
+% \href{https://github.com/ElegantLaTeX/ElegantNote}{ElegantNote}, 
+% \href{https://github.com/ElegantLaTeX/ElegantBook}{ElegantBook}, 
+% \href{https://github.com/ElegantLaTeX/ElegantPaper}{ElegantPaper}, 
+% designed for typesetting notes, books, and working papers respectively. 
+% Latest releases are strongly recommended! This guide is aimed at briefly 
+% introducing the 101 of this template. For any other question, suggestion or comment, 
+% feel free to contact us on GitHub \href{https://github.com/ElegantLaTeX/ElegantBook/issues}{issues} 
+% or email us at \email{elegantlatex2e@gmail.com}.
+%
+% 
+% 我们的联系方式如下，建议加入用户 QQ 群提问，这样能更快获得准确的反馈，加群时请备注 \LaTeX{} 或者 Elegant\LaTeX{} 相关内容。
+% \begin{itemize}
+%  \item 官网：\href{https://elegantlatex.org/}{https://elegantlatex.org/}
+%  \item GitHub 网址：\href{https://github.com/ElegantLaTeX/}{https://github.com/ElegantLaTeX/}
+%  \item CTAN 地址：\href{https://ctan.org/pkg/elegantbook}{https://ctan.org/pkg/elegantbook}
+%  \item 文档 Wiki：\href{https://github.com/ElegantLaTeX/ElegantBook/wiki}{https://github.com/ElegantLaTeX/ElegantBook/wiki}
+%  \item 下载地址：\href{https://github.com/ElegantLaTeX/ElegantBook/releases}{正式发行版}，\href{https://github.com/ElegantLaTeX/ElegantBook/archive/master.zip}{最新版}
+%  \item 微博：Elegant\LaTeX{}
+%  \item 微信公众号：Elegant\LaTeX{}
+%  \item 用户 QQ 群：692108391 
+%  \item 邮件：\email{elegantlatex2e@gmail.com}
+% \end{itemize}
+%
+%
+% Contact Infos:
+% \begin{itemize}
+%   \item Homepage: \href{https://elegantlatex.org/}{https://elegantlatex.org/}
+%   \item GitHub: \href{https://github.com/ElegantLaTeX/}{https://github.com/ElegantLaTeX/}
+%   \item CTAN: \href{https://ctan.org/pkg/elegantbook}{https://ctan.org/pkg/elegantbook}
+%   \item Wiki: \href{https://github.com/ElegantLaTeX/ElegantBook/wiki}{https://github.com/ElegantLaTeX/ElegantBook/wiki}
+%   \item Download: \href{https://github.com/ElegantLaTeX/ElegantBook/releases}{release}, \href{https://github.com/ElegantLaTeX/ElegantBook/archive/master.zip}{latest version}
+%   \item Weibo: Elegant\LaTeX{}
+%   \item Wechat: Elegant\LaTeX{}
+%   \item QQ: 692108391
+%   \item Email: \email{elegantlatex2e@gmail.com}
+% \end{itemize}
+%
+% \section{使用说明}
+%\DescribeMacro{\email}
+% 模板定义了邮件命令 \cs{email}, 有一个必选项，\marg{url}.
+% \begin{verbatim}
+%  \email{elegantlatex2e@gmail.com}
+% \end{verbatim}
+%
+%\subsection{语言选项}
+%
+%
+%\DescribeMacro{scheme}
+% 本模板内含三套语言环境 \verb|lang=cn|、\verb|lang=en| 以及 \verb|lang=it| 
+% \footnote{由 \href{https://github.com/VincentMVV}{VincentMVV} 提供意大利语翻译，
+% 具体的内容见 \href{https://github.com/ElegantLaTeX/ElegantBook/issues/85}{Italian translation}。}，
+% 改变语言环境会改变图表标题的引导词（图，表），文章结构词（比如目录，参考文献等），
+% 以及定理环境中的引导词（比如定理，引理等）。不同语言模式的启用如下：
+% \begin{verbatim}
+%  \documentclass[cn]{elegantbook} 
+%  \documentclass[lang=cn]{elegantbook}
+% \end{verbatim}
+%
+% \DescribeMacro{color}
+% 如果需要自定义颜色的话请选择 \verb|nocolor| 选项或者使用 \verb|color=none|，然后在导言区定义 structurecolor、main、second、third 颜色，具体方法如下：
+% \begin{verbatim}
+%  \definecolor{structurecolor}{RGB}{0,0,0}
+%  \definecolor{main}{RGB}{70,70,70}    
+%  \definecolor{second}{RGB}{115,45,2}    
+%  \definecolor{third}{RGB}{0,80,80} 
+% \end{verbatim}
+%
+% \begin{figure}[!htbp]
+% \centering
+% \includegraphics[width=0.6\textwidth]{cert.pdf}
+% \end{figure}
+%
+%
+%
+%
+% \begin{macro}{\mymacro}
+% We define a trivial macro, |\mymacro|, to illustrate
+% the use of the |macro| environment.
+%    \begin{macrocode}
+\newcommand{\mymacro}{This is
+  a \LaTeX{} macro.}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+%
+%    \begin{macrocode}
+%<*note>
+%    \end{macrocode}
+%
+%
+%    \begin{macrocode}
+\begin{macro}{\examplemacro}
+  \newcommand*\examplemacro[2][]{%
+    Some code here, probably
+}
+\end{macro}
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+%</note>
+%    \end{macrocode}
+% 
+%
+% \DescribeEnv{YOURENV}
+% Put description of |YOURENV| here.
+%
+%
+%
+%\begin{environment}{example}
+% \makebox[0pt][r]{\makebox[4cm][l]{\textcolor{blue}{\texttt{\small elegantbook} / }}} 最初我们在 Book 上定义了 |example| 环境。
+%    \begin{macrocode}
+%<*book>
+\newcounter{exam}[chapter]
+\setcounter{exam}{0}
+\renewcommand{\theexam}{\thechapter.\arabic{exam}}
+\newenvironment{example}[1][]{
+  \refstepcounter{exam}
+  \par\noindent\textbf{\color{main}{\examplename} \theexam #1 }\rmfamily}{
+  \par\ignorespacesafterend}
+%</book>
+%    \end{macrocode}
+%\end{environment}
+%
+% \section{Implementation}
+% \begin{environment}{YOURENV}
+% Put explanation of |YOURENV|’s implementation here.
+%    \begin{macrocode}
+\newenvironment{YOURENV}{}{}
+%    \end{macrocode}
+% \end{environment}
+%
+%\StopEventually{
+%  \PrintChanges
+%}
+%
+%    \begin{macrocode}
+\PassOptionsToPackage{no-math}{fontspec}
+\RequirePackage{iftex}
+\ifdefstring{\ELEGANT@lang}{cn}{
+  \ifXeTeX
+    \ifdefstring{\ELEGANT@chinesefont}{founder}{
+      \RequirePackage[UTF8,scheme=plain,fontset=none]{ctex}
+      \setCJKmainfont[BoldFont={FZHei-B01},ItalicFont={FZKai-Z03}]{FZShuSong-Z01}
+      \setCJKsansfont[BoldFont={FZHei-B01},ItalicFont={FZHei-B01}]{FZHei-B01}
+      \setCJKmonofont[BoldFont={FZHei-B01},ItalicFont={FZHei-B01}]{FZFangSong-Z02}
+      \setCJKfamilyfont{zhsong}{FZShuSong-Z01}
+      \setCJKfamilyfont{zhhei}{FZHei-B01}
+      \setCJKfamilyfont{zhkai}{FZKai-Z03}
+      \setCJKfamilyfont{zhfs}{FZFangSong-Z02}
+      \newcommand*{\songti}{\CJKfamily{zhsong}}
+      \newcommand*{\heiti}{\CJKfamily{zhhei}}
+      \newcommand*{\kaishu}{\CJKfamily{zhkai}}
+      \newcommand*{\fangsong}{\CJKfamily{zhfs}}}{\relax}
+    
+    \ifdefstring{\ELEGANT@chinesefont}{nofont}{
+      \RequirePackage[UTF8,scheme=plain,fontset=none]{ctex}}{\relax}
+
+    \ifdefstring{\ELEGANT@chinesefont}{ctexfont}{
+      \RequirePackage[UTF8,scheme=plain]{ctex}}{\relax}
+  \else
+    \ifdefstring{\ELEGANT@chinesefont}{ctexfont}{
+      \RequirePackage[UTF8,scheme=plain]{ctex}}{\relax}
+  \fi
+  \AfterEndPreamble{
+    % \renewcommand{\itshape}{\kaishu}
+    \setlength\parindent{2\ccwd}}
+}{\relax}
+%    \end{macrocode}
+%
+%\Finale
