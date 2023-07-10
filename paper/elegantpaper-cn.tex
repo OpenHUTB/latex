@@ -1,6 +1,8 @@
 %!TEX program = xelatex
+%!BIB program = biber
 % 完整编译: xelatex -> biber/bibtex -> xelatex -> xelatex
-\documentclass[lang=cn,a4paper,newtx]{elegantpaper}
+% 需要执行 Tools -> Bibliography （或者F8），然后再执行F5
+\documentclass[lang=cn,a4paper,newtx,citestyle=gb7714-2015, bibstyle=gb7714-2015]{elegantpaper}
 
 \title{ElegantPaper: 一个优美的 \LaTeX{} 工作论文模板}
 \author{作者1 \\ 某某大学/机构 \and 作者2 \\ 某某大学/机构}
